@@ -1,11 +1,18 @@
-import React from "react";
-import "./style.css";
+import React, { useRef, useEffect } from 'react';
+import './style.css';
+
+const MyInput = () => {
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+  return <input ref={inputRef} />;
+};
 
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <MyInput />
     </div>
   );
 }
